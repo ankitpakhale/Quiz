@@ -93,6 +93,7 @@ def addquestions(request):
         option3=request.POST['option3']
         option4=request.POST['option4']
         ans=request.POST['ans']
+        categoryName=request.POST['categoryName']
         try:
             v = question()
             v.question = questions
@@ -101,6 +102,7 @@ def addquestions(request):
             v.option3 = option3
             v.option4 = option4
             v.ans = ans
+            v.categoryName = categoryName
             v.save()
             return render(request,'add questions.html', {'msg': 'Your questions are successfully saved'})
         except:
@@ -182,36 +184,43 @@ def home(request):
     print('unknown user')
     if request.session.has_key('username'):
         print('logged in user')
-        right = 0
-        wrong = 0
-        # obj = sorted(question.objects.all()[:2],key=lambda x: random.random())
-        obj = sorted(question.objects.all(),key=lambda x: random.random())
-        total_data = question.objects.all().count()
-        if request.POST:
-            print("inside post method")
-            try:
-                for d in obj:
-                    val = request.POST.get(str(d.id))
-                    print(val)
-                    if d.ans == val:
-                        print(f'Right Answer..\n')
-                        right +=1
-                    else :
-                        print(f'Wrong Answer..\nRight Answer = {d.ans}\n')
-                        wrong +=1
-                print(f'Right = {right}, Wrong = {wrong}')
-                form = registerform.objects.get(username=request.session['username'])
-                form.total = total_data
-                form.right = right
-                form.wrong = wrong
-                form.score = right
-                form.save()
-                return redirect('result')
-            except:
+        try:
+            print("Inside try block of home function")
+            right = 0
+            wrong = 0
+            # obj = sorted(question.objects.all()[:2],key=lambda x: random.random())
+            obj = sorted(question.objects.all(),key=lambda x: random.random())
+            total_data = question.objects.all().count()
+            if request.POST:
+                print("inside post method")
+                try:
+                    for d in obj:
+                        val = request.POST.get(str(d.id))
+                        print(val)
+                        if d.ans == val:
+                            print(f'Right Answer..\n')
+                            right +=1
+                        else :
+                            print(f'Wrong Answer..\nRight Answer = {d.ans}\n')
+                            wrong +=1
+                    print(f'Right = {right}, Wrong = {wrong}')
+                    form = registerform.objects.get(username=request.session['username'])
+                    form.total = total_data
+                    form.right = right
+                    form.wrong = wrong
+                    form.score = right
+                    form.save()
+                    return redirect('result')
+                except:
+                    return render(request,'index.html',{'obj':obj})
+            else:
+                # return render(request,'index.html',{'obj':obj})
                 return render(request,'index.html',{'obj':obj})
-        else:
-            # return render(request,'index.html',{'obj':obj})
-            return render(request,'index.html',{'obj':obj})
+        except:
+            msg = 'Something went wrong'
+            print("Something went wrong in Home page")
+            return render(request,'index.html',{'msg1': msg})
+
     
     return redirect('signin')
 

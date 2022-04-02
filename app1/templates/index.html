@@ -83,6 +83,9 @@
                       <a href="{% url 'about' %}">About Us</a>
                     </li>
                     <li class="nav-item">
+                      <a href="{% url 'randomquiz' %}">Random Quiz</a>
+                    </li>
+                    <li class="nav-item">
                       <a href="{% url 'support' %}">Support</a>
                     </li>
                 </ul>
@@ -122,6 +125,8 @@
             <img src="{% static 'images/Hero image.png' %}" class="img-fluid d-none d-md-block" alt="Hero img">
         </div>
     </div>
-
+    {% if msg %}
+    <script>alert('{{ msg }}')</script>
+    {% endif %}
 </body>
 </html>

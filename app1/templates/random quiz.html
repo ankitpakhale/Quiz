@@ -44,25 +44,71 @@
   </head>
   <body class="index">
     <!--====== NAVBAR TWO PART START ======-->
+   <!--====== NAVBAR TWO PART START ======-->
 
-    <section class="navbar-area navbar-two mb-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <nav class="navbar navbar-expand-lg">
-              <a class="navbar-brand" href="javascript:void(0)">
-                <img src="{% static 'images/Logoquizica 1.svg' %}" style="
-                margin-top: 10px;" alt="Logo" />
-              </a>
-            </nav>
-            <!-- navbar -->
-          </div>
+   <section class="navbar-area navbar-two" style="margin: 0 0 50px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="javascript:void(0)">
+              <img src="{% static 'images/Logoquizica 1.svg' %}" alt="Logo" />
+            </a>
+
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarTwo"
+              aria-controls="navbarTwo"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="toggler-icon"></span>
+              <span class="toggler-icon"></span>
+              <span class="toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
+              <ul class="navbar-nav m-auto">
+                <li class="nav-item">
+                  
+                  <li class="nav-item">
+                    <a href="{% url 'home' %}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'features' %}">Features</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'about' %}">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'randomquiz' %}">Random Quiz</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'support' %}">Support</a>
+                  </li>
+              </ul>
+            </div>
+
+            <div class="navbar-btn d-none d-sm-inline-block">
+              <ul>
+                <li>
+                  <a class="btn primary-btn square" href="{% url 'logout' %}">
+                    Sign Out
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <!-- navbar -->
         </div>
-        <!-- row -->
       </div>
-      <!-- container -->
-    </section>
-   <!--====== NAVBAR TWO PART ENDS ======-->
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </section>
+ <!--====== NAVBAR TWO PART ENDS ======-->
     <!-- your content here -->
   
     <div class="container">
