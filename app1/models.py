@@ -15,10 +15,9 @@ class question(models.Model):
     option4=models.CharField("Worng Answer 4",max_length=280,default="",blank=True,null=True)
     ans=models.CharField("Answer",max_length=280,default="",blank=True)
     categoryName=models.ForeignKey(category, on_delete=models.CASCADE, null=True, default="")
-       
+
     def __str__(self):
         return self.question
-    
     
 class registerform(models.Model):
     name=models.CharField(max_length=100)

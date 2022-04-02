@@ -84,9 +84,9 @@ def addquestions1(request):
     return render(request,'add questions.html')
 
 def addquestions(request):
-    print("addquestions")
+    print("Inside addquestions function")
     if request.method=='POST':
-        print("Inside signin post method")
+        print("Inside POST method")
         questions=request.POST['question']
         option1=request.POST['option1']
         option2=request.POST['option2']
@@ -94,20 +94,27 @@ def addquestions(request):
         option4=request.POST['option4']
         ans=request.POST['ans']
         categoryName=request.POST['categoryName']
-        try:
-            v = question()
-            v.question = questions
-            v.option1 = option1
-            v.option2 = option2
-            v.option3 = option3
-            v.option4 = option4
-            v.ans = ans
-            v.categoryName = categoryName
-            v.save()
-            return render(request,'add questions.html', {'msg': 'Your questions are successfully saved'})
-        except:
-            return render(request,'add questions.html', {'msg': 'Something went wrong'})
-
+        print(categoryName)
+        # try:
+        print('100')
+        # iddd = category.objects.get(id = 1)
+        print('101')
+        print("Try block of addquestions function")
+        v = question()
+        v.question = questions
+        v.option1 = option1
+        v.option2 = option2
+        v.option3 = option3
+        v.option4 = option4
+        v.ans = ans
+        print("01")
+        v.categoryName_id = categoryName
+        print("02")
+        v.save()
+        print("Data saved properly")
+        return render(request,'add questions.html', {'msg': 'Your questions are successfully saved'})
+        # except:
+        #     return render(request,'add questions.html', {'msg': 'Something went wrong'})
     else:
         print("Else condition")
         return render(request,'add questions.html')
