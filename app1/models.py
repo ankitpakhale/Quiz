@@ -14,8 +14,7 @@ class question(models.Model):
     option3=models.CharField("Worng Answer 3",max_length=280,default="",blank=True,null=True)
     option4=models.CharField("Worng Answer 4",max_length=280,default="",blank=True,null=True)
     ans=models.CharField("Answer",max_length=280,default="",blank=True)
-    
-    categoryName=models.ForeignKey(category, on_delete=models.CASCADE)
+    categoryName=models.ForeignKey(category, on_delete=models.CASCADE, null=True, default="")
        
     def __str__(self):
         return self.question
