@@ -93,12 +93,9 @@ def addquestions(request):
         option3=request.POST['option3']
         option4=request.POST['option4']
         ans=request.POST['ans']
-        categoryName=request.POST['categoryName']
-        print(categoryName)
+        # categoryName=request.POST['categoryName']
+        # print(categoryName)
         # try:
-        print('100')
-        # iddd = category.objects.get(id = 1)
-        print('101')
         print("Try block of addquestions function")
         v = question()
         v.question = questions
@@ -108,7 +105,7 @@ def addquestions(request):
         v.option4 = option4
         v.ans = ans
         print("01")
-        v.categoryName_id = categoryName
+        v.categoryName = categoryName
         print("02")
         v.save()
         print("Data saved properly")
