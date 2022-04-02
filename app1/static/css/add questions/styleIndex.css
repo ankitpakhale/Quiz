@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i|Monoton');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons'); 
+
+ /** not needed. just couldn't see your fonts **/
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+body {
+  
+  color: #454749;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family:
+    'Source Sans Pro',
+    sans-serif;
+  min-height: 100vh;
+}
+
+.tile{
+  background-color: #ffffff;
+  border-radius: .1rem;
+  box-shadow: 0 .75rem 1.5rem rgba(0,0,0,0.2), 0 .25rem .25rem rgba(0,0,0,0.2);
+  position: relative;
+  width: 100%;
+  min-width: 320px;
+  max-width: 50rem;
+  overflow: hidden;
+  padding: 2rem;
+  margin-top: 40px;
+}
+
+.imagestyle{
+width: 32px;
+	height: 32px;
+	cursor: pointer;
+}
+.redrow{
+background-color: red;
+color:yellow;
+font-style: italic;
+}
+
+body{
+    /* background-image:url(hero_bg.svg); */
+    background: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+    background-color: #cccccc;
+    background-size: cover;
+}
+
+.index .bubbles {
+  position: relative;
+  width: 100%;
+}
+
+.display{
+    margin: 10px 20px;
+}
+
+.title{
+  text-align: center;
+}
+.question {
+    margin-left: 20px; 
+}
+#option1,#option2,#option3,#option4{
+  margin-bottom: 10px;
+  height: 30px;
+}
+#ques{
+  margin-bottom: 10px;
+}
+/* .option2, .option4{
+  padding-left: 135px;
+} */
+
+#add, #savelocal, #delete, #clear{
+  background: #1884FF;
+  color: white;
+  width: 100px;
+  height: 25px;
+  border: none;
+  margin-left: 5px ;
+}

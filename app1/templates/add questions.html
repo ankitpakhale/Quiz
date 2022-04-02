@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'images/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#0d0000">
+
+
+    <title>Quizica</title>
+
+    <link rel="stylesheet" href="{% static 'css/add questions/styleIndex.css' %}">
+    <script src="{% static 'js/add questions/item.js' %}"></script>
+    <script src="{% static 'js/add questions/itemOperation.js' %}"></script>
+    <script src="{% static 'js/add questions/controller.js' %}"></script>
+
+</head>
+
+<body class="index">
+    <div class="tile">
+        <Fieldset>
+            <!-- <form method="POST">
+                {% csrf_token %} -->
+                <legend class="title">
+                    <h1>Questions</h1>
+                </legend>
+                <div class="display">
+                    <table>
+                        <tr>
+                            <td><label for="">Ques no</label></td>
+                            <td><label id="quesid"></label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Question</label></td>
+                            <td><textarea id="ques" cols="70" rows="2"></textarea>
+                            </td>
+                            <!-- <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);"> -->
+                        </tr>
+                        <tr>
+                            <td><label for="">Option 1</label></td>
+                            <td><input id="option1" type="text" style="width: 100%;" placeholder="Enter option 1"></td>
+                        </tr>
+                        <tr>
+                            <td class="option2"><label for="">Option 2</label></td>
+                            <td><input id="option2" type="text" style="width: 100%;" placeholder="Enter option 2"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Option 3</label></td>
+                            <td><input id="option3" type="text" style="width: 100%;" placeholder="Enter option 3"></td>
+                        </tr>
+                        <tr>
+
+                            <td class="option4"><label for="">Option 4</label></td>
+                            <td><input id="option4" type="text" style="width: 100%;" placeholder="Enter option 4"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Answer</label></td>
+                            <td><input id="ans" type="number" placeholder="Option no" min="1" max="4"></td>
+                        </tr>
+                    </table>
+                    <h2>Total records are <span id="total"></span> Mark Records are <span id="marktotal"></h2>
+                    <table>
+                        <tr>
+                            <td><button id="add">Add</button></td>
+                            <td><button id="delete">Delete</button></td>
+                            <!-- <td><button id="update">Update</button></td>
+                                <td><button>Search</button></td> -->
+                            <td><button id="savelocal">Save</button></td>
+                            <!-- <td><button id="fetchlocal">Fetch Local</button></td> -->
+
+                            <td><button id="clear">Clear</button></td>
+                            <!-- <td><button><a href="test.html">Take test</a></button></td> -->
+                            <td><input type="submit" value="Save" id="savelocal"></td>
+
+                        </tr>
+                    </table>
+                </div>
+                <!-- </form> -->
+                <td><a style="text-decoration: none;
+                        padding: 5px 33px;
+                        font-size: 14px;
+                        margin-left: 25px;" href="{% url 'home' %}" id="savelocal">Home</a></td>
+
+        </Fieldset>
+        <fieldset>
+            <legend>Question List</legend>
+            <div class="display">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Qno</th>
+                            <th>Question</th>
+                            <th>Option 1</th>
+                            <th>Option 2</th>
+                            <th>Option 3</th>
+                            <th>Option 4</th>
+                            <th>Answer</th>
+                            <th>Operation</th>
+                        </tr>
+                    </thead>
+                    <tbody id="itemtable">
+
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+
+    {% if msg %}
+    <script>alert('{{ msg }}')</script>
+    {% endif %}
+
+</body>
+
+</html>

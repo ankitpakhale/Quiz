@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>quizica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="A new design system for developing with less effort.">
+    <meta name="author" content="BootstrapBay">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'images/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#0d0000">
+
+    
+        <link rel="stylesheet" href="{% static 'css/join/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/join/lazy.css' %}">
+		<link rel="stylesheet" href="{% static 'css/join/demo.css' %}">
+        <link rel="stylesheet" href="{% static 'css/join/join.css' %}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+  </head>
+  <body class="index">
+      <div class="container">
+	    <div class="page-hero text-white" id="banner">
+            <div class="bubbles d-none d-md-block">
+                <!-- bubbles -->
+            <div class="bubble bubble-1 rotate-bubble bg-warning"></div>
+            <div class="bubble bubble-2 bubble-bottom-right bg-danger rotate-bubble"></div>
+            <div class="bubble bubble-3 bubble-top-right bg-warning rotate-bubble"></div>
+            <div class="bubble bubble-4 bubble-top-left bg-warning rotate-bubble"></div>
+            <div class="bubble bubble-5 bg-info rotate-bubble"></div>
+            <div class="bubble bubble-6 bubble-bottom-right bg-danger rotate-bubble"></div>
+            <div class="bubble bubble-7 bubble-top-right bg-success rotate-bubble"></div>
+            <!-- <div class="bubble bubble-8 bubble-top-left bg-success rotate-bubble"></div> -->
+            <div class="bubble bubble-9 bg-warning rotate-bubble"></div>
+            <!-- <div class="bubble bubble-10 bg-danger rotate-bubble"></div> -->
+            <!-- <div class="bubble bubble-11 bubble-bottom-right bg-info rotate-bubble"></div> -->
+            <div class="bubble bubble-12 bubble-top-right bg-success rotate-bubble"></div>
+            <div class="bubble bubble-13 bubble-top-left bg-success rotate-bubble"></div>
+        <!--         circles -->
+            <div class="circle circle-1 bg-light rotate-circle"></div>
+            <div class="circle circle-2 bg-success rotate-circle"></div>
+            <div class="circle circle-3 bg-danger rotate-circle"></div>
+            <div class="circle circle-4 bg-info rotate-circle"></div>
+            <div class="circle circle-5 bg-success rotate-circle"></div>
+            <div class="circle circle-6 bg-light rotate-circle"></div>
+            <div class="circle circle-7 bg-warning rotate-circle"></div>
+            <div class="circle circle-8 bg-white rotate-circle"></div>
+            <div class="circle circle-9 bg-warning rotate-circle"></div>
+            <div class="circle circle-10 bg-danger rotate-circle"></div>
+            </div>
+            <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8  offset-lg-2 quiz-code text-center">
+                    <div class="sc-dobjRs jkWdUe"><div data-functional-selector="game-logo" class="sc-fbNXWD laTUtf" title="Kahoot!"><h4 class="text-white">Enter code to join quiz:</h4></div></div>
+                    
+                    <div class="form text-center">
+                        <form action="#" class="sc-cjGabg dsfWTG"><input name="gameId" type="tel" placeholder="Quiz code" id="game-input" data-functional-selector="game-pin-input" class="sc-GqfZa kseUGC" autocomplete="off" dir="ltr" value="" min="0" max="9" maxlength="6"aria-expanded="false"><button type="submit" class="sc-jJEJSO cSfrJD sc-lWEAX dVwHwb" data-functional-selector="join-game-pin">Enter</button></form>
+                        
+                      </div>
+                </div>
+            </div>
+            </div>
+        </div>
+</div>
+
+
+ <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'css/join/jquery.min.js' %}"></script>
+    <script src="{% static 'css/join/popper.min.js' %}"></script>
+    <script src="{% static 'css/join/bootstrap.min.js' %}" ></script>
+
+    <!-- optional plugins -->
+    <script src="{% static 'css/join/nouislider.min.js' %}"></script>
+
+    <!--   lazy javascript -->
+    <script src="{% static 'css/join/lazy.js' %}"></script>
+</body>
+</html>

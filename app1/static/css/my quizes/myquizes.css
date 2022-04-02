@@ -1,0 +1,23 @@
+/* .navbar-nav{
+    margin-left: 450px;
+  } */
+
+.details-btn{
+    color: #0d6efd !important;
+    border: 1px solid #155bd5 !important;
+}
+
+.details-btn:hover,:active{
+    color: #fff !important;
+}
+
+.card-header{
+    background: linear-gradient(90deg, #2a2a72 0%, #009ffd 74%) ;
+}
+
+h3{
+    color: #fff !important;
+}
+.card-body{
+    background: #c0d1eb;
+}

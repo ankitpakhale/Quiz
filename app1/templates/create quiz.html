@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'images/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#0d0000">
+
+  <title>Quizica</title>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="{% static 'css/create quiz/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/create quiz/lazy.css' %}">
+  <link rel="stylesheet" href="{% static 'css/create quiz/demo.css' %}">
+
+</head>
+<body class="index">
+<!-- partial:index.partial.html -->
+<div class="form-body">
+        <div class="row">
+            <div class="bubbles d-none d-md-block">
+                <!-- bubbles -->
+            <div class="bubble bubble-1 rotate-bubble bg-warning"></div>
+            <div class="bubble bubble-2 bubble-bottom-right bg-danger rotate-bubble"></div>
+            <div class="bubble bubble-3 bubble-top-right bg-warning rotate-bubble"></div>
+            <div class="bubble bubble-4 bubble-top-left bg-warning rotate-bubble"></div>
+            <div class="bubble bubble-5 bg-info rotate-bubble"></div>
+            <div class="bubble bubble-6 bubble-bottom-right bg-danger rotate-bubble"></div>
+            <div class="bubble bubble-7 bubble-top-right bg-success rotate-bubble"></div>
+            <!-- <div class="bubble bubble-8 bubble-top-left bg-success rotate-bubble"></div> -->
+            <div class="bubble bubble-9 bg-warning rotate-bubble"></div>
+            <!-- <div class="bubble bubble-10 bg-danger rotate-bubble"></div> -->
+            <!-- <div class="bubble bubble-11 bubble-bottom-right bg-info rotate-bubble"></div> -->
+            <div class="bubble bubble-12 bubble-top-right bg-success rotate-bubble"></div>
+            <div class="bubble bubble-13 bubble-top-left bg-success rotate-bubble"></div>
+        <!--         circles -->
+            <div class="circle circle-1 bg-light rotate-circle"></div>
+            <div class="circle circle-2 bg-success rotate-circle"></div>
+            <div class="circle circle-3 bg-danger rotate-circle"></div>
+            <div class="circle circle-4 bg-info rotate-circle"></div>
+            <div class="circle circle-5 bg-success rotate-circle"></div>
+            <div class="circle circle-6 bg-light rotate-circle"></div>
+            <div class="circle circle-7 bg-warning rotate-circle"></div>
+            <div class="circle circle-8 bg-white rotate-circle"></div>
+            <div class="circle circle-9 bg-warning rotate-circle"></div>
+            <div class="circle circle-10 bg-danger rotate-circle"></div>
+            </div>
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>NEW QUIZ</h3>
+                        <p>Create your personalized quiz.</p>
+                        <form class="requires-validation" novalidate>
+
+                            <div class="col-md-12">
+                               <input class="form-control" type="text" name="Quiz title" placeholder="Quiz title" required>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="description" placeholder="Quiz description" required>
+                            </div>
+
+                           <div class="col-md-12 mt-3">
+                            <input class="form-control" type="number" name="quiz duration" placeholder="Quiz duration in minutes" required>
+                           </div>
+
+
+                           <div class="col-md-12">
+                              <input class="form-control" type="text" name="quiz code" placeholder="" required>
+                           </div>
+
+                           <div class="form-button mt-3">
+                            <!-- <button id="button" type="button" class="btn btn-outline btn-cancel" href="{% url 'features' %}">cancel</button> -->
+                            <a id="button" type="button" class="btn btn-outline btn-cancel"href="{% url 'index' %}">cancel</a>
+                            <a id="button" type="button" class="btn btn-primary"href="{% url 'addquestions' %}">Next</a>
+                            <!-- <button id="button" type="button" class="btn btn-primary">Next</button> -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- partial -->
+  <script  src="{% static 'js/create quiz/script.js' %}"></script>
+
+</body>
+</html>

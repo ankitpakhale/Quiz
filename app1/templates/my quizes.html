@@ -1,0 +1,237 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'images/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#0d0000">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    
+    <!-- !--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="{% static 'css/index/bootstrap.min.css' %}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="{% static 'css/index/lineicons.css' %}" />
+    
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="{% static 'css/index/starter.css' %}" />
+    
+    <link rel="stylesheet" href="{% static 'css/index/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index/navbar-02.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/my quizes/myquizes.css' %}">
+
+
+    <!--====== cards css ======-->
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="{% static 'css/Features/bootstrap.min.css' %}" />
+
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="{% static 'css/Features/lineicons.css' %}" />
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="{% static 'css/Features/starter.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/Features/card-01.css' %}" />
+    
+
+    <title>Quizica</title>
+</head>
+<body>
+         <!--====== NAVBAR TWO PART START ======-->
+
+    <section class="navbar-area navbar-two">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg"style="right: 8px;">
+                <a class="navbar-brand" href="javascript:void(0)">
+                  <img src="{% static 'images/Logoquizica 1.svg' %}" alt="Logo" />
+                </a>
+  
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarTwo"
+                  aria-controls="navbarTwo"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="toggler-icon"></span>
+                  <span class="toggler-icon"></span>
+                  <span class="toggler-icon"></span>
+                </button>
+  
+                <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a
+                        class="page-scroll "
+                        data-bs-toggle="collapse"
+                        data-bs-target="#sub-nav3"
+                        aria-controls="sub-nav3"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                        href="{% url 'features' %}"
+                        >Features
+                      </a>
+  
+                      
+                    <li class="nav-item">
+                      <a href="{% url 'myquizes' %}" class="active">My quizzes</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                      <a href="javascript:void(0)">Profile</a>
+                    </li> -->
+                    <li class="nav-item">
+                      <a
+                        class="page-scroll "
+                        data-bs-toggle="collapse"
+                        data-bs-target="#sub-nav3"
+                        aria-controls="sub-nav3"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                        href="javascript:void(0)"
+                        >Profile
+                      </a>
+  
+                      <ul class="sub-menu collapse" id="sub-nav3">
+                        <li><a href="javascript:void(0)">UserName</a></li>
+                        <li>
+                          <a
+                            class="page-scroll"
+
+                            aria-controls="sub-nav4"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                            href="javascript:void(0)"
+                            data-bs-toggle="modal"
+                            data-bs-target="#password-modal"
+                            >Update password
+                          </a>
+                        </li>
+                        <li><a href="javascript:void(0)">Log out</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+  
+              </nav>
+              <!-- navbar -->
+            </div>
+          </div>
+          <!-- row -->
+        </div>
+        <!-- container -->
+      </section>
+  
+      <!--====== NAVBAR TWO PART ENDS ======-->
+      <!-- Password model -->
+      <div class="modal fade" id="password-modal" tabindex="-1" aria-labelledby="password-modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content animated flipInY">
+            <div class="modal-header">
+              <h5 class="modal-title" id="passwordModalLabel">Update Password</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="">
+                <div class="form-group pb-4">
+                  <input type="password" class="form-control" placeholder="Old password">
+                </div>
+                <div class="form-group pb-4">
+                  <input type="password" class="form-control" placeholder="New password">
+                </div>
+                <div class="form-group pb-4">
+                  <input type="password"  class="form-control" placeholder="Confirm password">
+                </div>
+                <div>
+                  <input type="submit" class="btn update" style="background: linear-gradient(95.34deg, #1884FF 0%, #49CDFF 100%); " value="Update password">
+                  <!-- <a href="#" data-dismiss="modal" class="btn btn-outline-primary close">close</a> -->
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- My Quizes Table -->
+<section class="p-3">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header text-white">
+                        <h3>My Quizzes</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover text-center">
+                            <thead class="bg-dark text-white">
+                                <tr>
+                                    <th>SNo.</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Quiz code</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Python quiz</td>
+                                    <td>quiz related python framework Django</td>
+                                    <td>123456</td>
+                                    <td><a href="{% url 'details' %}" class="btn btn-outline-primary btn-sm details-btn">Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Python quiz</td>
+                                    <td>quiz related python framework Django</td>
+                                    <td>123456</td>
+                                    <td><a href="{% url 'details' %}" class="btn btn-outline-primary btn-sm details-btn">Details</a></td>
+                                </tr>
+                                <tr>    
+                                    <td>3</td>
+                                    <td>Python quiz</td>
+                                    <td>quiz related python framework Django</td>
+                                    <td>123456</td>
+                                    <td><a href="{% url 'details' %}" class="btn btn-outline-primary btn-sm details-btn">Details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
