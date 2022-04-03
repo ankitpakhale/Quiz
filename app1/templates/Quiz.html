@@ -151,10 +151,10 @@
                     <h1 class="texttagline">Q. {{ q.question }}</h1>
                 </div>
                 <div>
-                    <p class="qOptions"><input class="rbtn" type="radio" name="q{{ q.id }}" value="{{ q.w_ans1 }}" id="q1a">a. {{ q.option1 }}<br></p>
-                    <p class="qOptions"><input class="rbtn" type="radio" name="q{{ q.id }}" value="{{ q.w_ans2 }}" id="q1b">b. {{ q.option2 }}<br></p>
-                    <p class="qOptions"><input class="rbtn" type="radio" name="q{{ q.id }}" value="{{ q.w_ans3 }}" id="q1c">c. {{ q.option3 }}<br></p>
-                    <p class="qOptions"><input class="rbtn" type="radio" name="q{{ q.id }}" value="{{ q.w_ans4 }}" id="q1d">d. {{ q.option4 }}<br></p>
+                    <p class="qOptions"><input class="rbtn" type="radio" name="q{{ q.id }}" value="{{ q.option1 }}" id="q1a">a. {{ q.option1 }}<br></p>
+                    <p class="qOptions"><input class="rbtn" type="radio" name="q{{ q.id }}" value="{{ q.option2 }}" id="q1b">b. {{ q.option2 }}<br></p>
+                    <p class="qOptions"><input class="rbtn" type="radio" name="q{{ q.id }}" value="{{ q.option3 }}" id="q1c">c. {{ q.option3 }}<br></p>
+                    <p class="qOptions"><input class="rbtn" type="radio" name="q{{ q.id }}" value="{{ q.option4 }}" id="q1d">d. {{ q.option4 }}<br></p>
                 </div>
             </div>
             {% endfor %}

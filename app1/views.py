@@ -76,7 +76,6 @@ def questions(request):
 
 def addquestions(request):
     if request.session.has_key('username'):
-        print(request.session['username'])
         cat = category.objects.all()
         if request.method=='POST':
             print("Inside POST method")
@@ -102,7 +101,7 @@ def addquestions(request):
                             )
                 v.save()
                 print("Data saved properly")
-                return render(request,'add questions.html', {'msg': 'Your questions are successfully saved'})
+                return render(request,'add questions.html', {'msg': 'Your questions are successfully saved', 'cat': cat})
             except:
                 return render(request,'add questions.html', {'msg': 'Something went wrong'})
         else:
@@ -175,15 +174,16 @@ def play(request, cat_name):
         print('play Play')
         right = 0
         wrong = 0
-        ncat = category.objects.get(nameOfCategory =cat_name)
-        data = question.objects.filter(categoryName = ncat)
-        total_data = question.objects.filter(categoryName = ncat).count()
+        ncat = category.objects.get(nameOfCategory=cat_name)
+        data = question.objects.filter(categoryName=ncat)
+        # data = question.objects.all()
+        print(data, 'bdvhkbvsd')
+        total_data = question.objects.filter(categoryName=ncat).count()
         if request.POST:
             print('POST condition')
             for d in data :
-                pl = str(d.id)
-                print(pl,"this is PL")
-                val = request.POST['q'+pl]
+
+                val = request.POST["q"+str(d.id)]
                 print(val, "this is value")
                 if d.ans == val :
                     print(f'\nRight Answer = {d.ans}\n')
@@ -361,7 +361,6 @@ def signin1(request):
 def logout(request):
     print("Inside logout function")
     if request.session.has_key('username'):
-        print(request.session['username'], " logging out...")
         del request.session['username']
         print("user logged out successfully")
         return redirect('signin')

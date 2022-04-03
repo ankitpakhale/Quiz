@@ -42,7 +42,15 @@
     
 
     <title>Quizica</title>
-</head>
+  <style>
+    * {
+            overflow-x: hidden;
+        }
+        .text{
+          overflow-y: hidden;
+        }
+  </style>
+  </head>
 <body>
         <!--====== NAVBAR TWO PART START ======-->
 
@@ -76,9 +84,9 @@
                     <li class="nav-item">
                       <a href="{% url 'home' %}">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a href="{% url 'features' %}">Features</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                       <a href="{% url 'about' %}">About Us</a>
                     </li>
@@ -112,19 +120,20 @@
 
    <div class="row justify-content-center" id="banner">
         <div class="col-md-5 col-11" id="bannertext">
-            <h1 id="texttagline">Create your own<span id="custom"> customized </span> quiz in just a few minutes!</h1>
+            <h1 id="texttagline" class="text">Create your own<span id="custom"> customized </span> quiz in just a few minutes!</h1>
             <p>You can also join quizzes that have been created by others by simply entering quiz code or You can enjoy a random quiz.</p>
             <!-- <button type="button" class="btn" id="banner-btn-1" style="height: 41px;">Create Now</button> -->
             <a class="btn primary-btn square" href="{% url 'addquestions' %}">Create Now</a>
             
-            <a class="btn primary-btn square" href="{% url 'enter' %}">Give Quiz</a>
+            <a class="btn primary-btn square" href="{% url 'randomquiz' %}">Give Quiz</a>
             
-            <a class="btn primary-btn-outline square" id="banner-btn-2" href="{% url 'join' %}">Join</a>
+            <!-- <a class="btn primary-btn-outline square" id="banner-btn-2" href="{% url 'join' %}">Join</a> -->
         </div>
         <div class="col-md-5" id="bannerimg" >
             <img src="{% static 'images/Hero image.png' %}" class="img-fluid d-none d-md-block" alt="Hero img">
         </div>
     </div>
+
     {% if msg %}
     <script>alert('{{ msg }}')</script>
     {% endif %}

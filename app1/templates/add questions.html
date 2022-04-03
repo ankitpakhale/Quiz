@@ -23,7 +23,11 @@
     <script src="{% static 'js/add questions/item.js' %}"></script>
     <script src="{% static 'js/add questions/itemOperation.js' %}"></script>
     <script src="{% static 'js/add questions/controller.js' %}"></script>
-
+    <style>
+        *{
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body class="index">
@@ -80,25 +84,12 @@
                         </tr>
                         <tr>
                             <td><label for="">Answer</label></td>
-                            <td><input name="ans" id="ans" type="number" placeholder="Option no" min="1" max="4""1" max="4"></td>
+                            <td><input name="ans" id="ans" type="text" placeholder="Answer"></td>
                         </tr>
                     </table>
                     <h2>Total records are <span id="total"></span> Mark Records are <span id="marktotal"></h2>
-                    <table>
-                        <tr>
-                            <td><button id="add">Add</button></td>
-                            <td><button id="delete">Delete</button></td>
-                            <!-- <td><button id="update">Update</button></td>
-                                <td><button>Search</button></td> -->
-                            <td><button id="savelocal">Save</button></td>
-                            <!-- <td><button id="fetchlocal">Fetch Local</button></td> -->
-
-                            <td><button id="clear">Clear</button></td>
-                            <!-- <td><button><a href="test.html">Take test</a></button></td> -->
-                            <td><input type="submit" value="Save" id="savelocal"></td>
-
-                        </tr>
-                    </table>
+                        <td><input type="submit" value="Save" id="savelocal"></td>
+                    
                 </div>
                 </form>
                 <td><a style="text-decoration: none;
@@ -107,28 +98,6 @@
                         margin-left: 25px;" href="{% url 'home' %}" id="savelocal">Home</a></td>
 
         </Fieldset>
-        <fieldset>
-            <legend>Question List</legend>
-            <div class="display">
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>Qno</th>
-                            <th>Question</th>
-                            <th>Option 1</th>
-                            <th>Option 2</th>
-                            <th>Option 3</th>
-                            <th>Option 4</th>
-                            <th>Answer</th>
-                            <th>Operation</th>
-                        </tr>
-                    </thead>
-                    <tbody id="itemtable">
-
-                    </tbody>
-                </table>
-            </div>
-        </fieldset>
     </div>
 
     {% if msg %}
