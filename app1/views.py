@@ -92,24 +92,24 @@ def addquestions(request):
             option4=request.POST['option4']
             ans=request.POST['ans']
             categoryName=request.POST['categoryName']
-            # try:
-            categoryName = category.objects.get(nameOfCategory = categoryName)
-            owner=signupform.objects.get(name=request.session['username'])
-            print("Try block of addquestions function")
-            v = question(question = questions,
-                        option1 = option1,
-                        option2 = option2,
-                        option3 = option3,
-                        option4 = option4,
-                        ans = ans,
-                        categoryName = categoryName,
-                        owner = owner
-                        )
-            v.save()
-            print("Data saved properly")
-            return render(request,'add questions.html', {'msg': 'Your questions are successfully saved'})
-            # except:
-            #     return render(request,'add questions.html', {'msg': 'Something went wrong'})
+            try:
+                categoryName = category.objects.get(nameOfCategory = categoryName)
+                owner=signupform.objects.get(name=request.session['username'])
+                print("Try block of addquestions function")
+                v = question(question = questions,
+                            option1 = option1,
+                            option2 = option2,
+                            option3 = option3,
+                            option4 = option4,
+                            ans = ans,
+                            categoryName = categoryName,
+                            owner = owner
+                            )
+                v.save()
+                print("Data saved properly")
+                return render(request,'add questions.html', {'msg': 'Your questions are successfully saved'})
+            except:
+                return render(request,'add questions.html', {'msg': 'Something went wrong'})
         else:
             print("Else condition")
             return render(request,'add questions.html', {'cat': cat})
@@ -251,9 +251,8 @@ def details(request):
     return render(request,'details.html')
 
 def home(request):
-    print('unknown user')
+    print(request.session['username'], " logged in..")
     if request.session.has_key('username'):
-        print('logged in user')
         try:
             print("Inside try block of home function")
             right = 0
@@ -350,7 +349,8 @@ def signin1(request):
 def logout(request):
     print("Inside logout function")
     if request.session.has_key('username'):
+        print(request.session['username'], " logging out...")
         del request.session['username']
-        print("You have been logged out")
+        print("user logged out successfully")
         return redirect('signin')
     return redirect('signin')
