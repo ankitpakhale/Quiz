@@ -13,6 +13,7 @@ urlpatterns=[
     path('support/',support,name='support'),
     
     path('question/',questions,name="question"),
+    
     path('randomquiz/',randomquiz,name="randomquiz"),
     path('addquestions/',addquestions,name="addquestions"),
     path('createquiz/',createquiz,name="create quiz"),
@@ -27,4 +28,5 @@ urlpatterns=[
     path('play/', play,name="play"),
     
     path('enter/', enter,name="enter"),
+    path('addCategory/', addCategory,name="addCategory"),
 ]

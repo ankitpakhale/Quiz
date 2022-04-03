@@ -75,16 +75,10 @@ def about(request):
 def questions(request):
     return render(request,'question.html')
 
-def randomquiz(request):
-    return render(request,'random quiz.html')
-
-def addquestions1(request):
-    # have to work on this function
-    # to add ques on db through user side  
-    return render(request,'add questions.html')
-
 def addquestions(request):
     print("Inside addquestions function")
+    cat = category.objects.all()
+    
     if request.method=='POST':
         print("Inside POST method")
         questions=request.POST['question']
@@ -93,20 +87,18 @@ def addquestions(request):
         option3=request.POST['option3']
         option4=request.POST['option4']
         ans=request.POST['ans']
-        # categoryName=request.POST['categoryName']
-        # print(categoryName)
+        categoryName=request.POST['categoryName']
         # try:
+        categoryName = category.objects.get(nameOfCategory = categoryName)
         print("Try block of addquestions function")
-        v = question()
-        v.question = questions
-        v.option1 = option1
-        v.option2 = option2
-        v.option3 = option3
-        v.option4 = option4
-        v.ans = ans
-        print("01")
-        v.categoryName = categoryName
-        print("02")
+        v = question(question = questions,
+                     option1 = option1,
+                     option2 = option2,
+                     option3 = option3,
+                     option4 = option4,
+                     ans = ans,
+                     categoryName = categoryName
+                     )
         v.save()
         print("Data saved properly")
         return render(request,'add questions.html', {'msg': 'Your questions are successfully saved'})
@@ -114,12 +106,24 @@ def addquestions(request):
         #     return render(request,'add questions.html', {'msg': 'Something went wrong'})
     else:
         print("Else condition")
-        return render(request,'add questions.html')
+        return render(request,'add questions.html', {'cat': cat})
 
 def enter(request):
     if request.POST :
         return redirect('play')
     return render(request,'enter.html')
+
+def addCategory(request):
+    if request.POST :
+        try:
+            catName=request.POST['addCategory']
+            c = category(nameOfCategory = catName)
+            c.save()
+            print("Category saced successfully")
+            return redirect('addquestions')
+        except:
+            return render(request,'addCategory.html')
+    return render(request,'addCategory.html')
 
 def dashboardview(request):
     if request.session.has_key('username'):
@@ -129,7 +133,62 @@ def dashboardview(request):
     else :
         return redirect('signin')
 
+
+
+def randomquiz(request):
+    if request.method=='POST':
+        print("Inside POST method")
+        cheese_blog=request.POST['categoryName']
+        print(cheese_blog)
+        request.session['username'] = cheese_blog
+        ncat = category.objects.get(nameOfCategory = cheese_blog)
+        print(ncat)
+        categoryName = question.objects.filter(categoryName = ncat)
+        print(categoryName)
+        print('Redirecting to play function')
+        return redirect('play')
+    return render(request,'random quiz.html')
+
 def play(request):
+    print('inside Play function function')
+    if request.session.has_key('username'):
+        print('play Play')
+        right = 0
+        wrong = 0
+        # data = sorted(question.objects.all(),key=lambda x: random.random())
+        # ncat = category.objects.get(nameOfCategory = 'Geography')
+        cheese_blog = request.session['username']
+        ncat = category.objects.get(nameOfCategory = cheese_blog)
+        data = question.objects.filter(categoryName = ncat)
+        total_data = question.objects.filter(categoryName = ncat).count()
+        if request.POST:
+            print('POST condition')
+            for d in data :
+                val = request.POST["q"+str(d.id)]
+                print(val)
+                if d.ans == val :
+                    print(f'\nRight Answer = {d.ans}\n')
+                    right +=1
+                else :
+                    print(f'Wrong Answer..\nRight Answer = {d.ans}\n')
+                    wrong +=1
+            print(f'Right = {right}, Wrong = {wrong}')
+            form = registerform.objects.get(name = request.session['username'])
+            form.total_data = total_data
+            form.right = right
+            form.wrong = wrong
+            form.score = right
+            form.exam_status = True
+            form.save()
+            return redirect('dashboardview')
+        return render(request,'Quiz.html',{'data':data})
+    else:
+        print('redirecting ti signin from play function')
+        return redirect('signin')
+
+
+
+def play1(request):
     print('inside Play function function')
     if request.session.has_key('username'):
         print('play Play')
@@ -158,7 +217,7 @@ def play(request):
             # form.save()
             form = registerform.objects.get(name = request.session['username'])
             # there is a problem of session validation
-            # this program wants to save data in registerform table using signupform session 
+            # this program wants to save data in registerform table using signupform session
             # which is not posible
             form.total_data = total_data
             form.right = right

@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class category(models.Model):
-    nameOfCategory=models.CharField(max_length=280, blank=True)
+    nameOfCategory=models.CharField(max_length=280,default="",blank=True,null=True)
     def __str__(self):
         return self.nameOfCategory
 
@@ -18,6 +18,9 @@ class question(models.Model):
 
     def __str__(self):
         return self.question
+    
+    
+    
     
 class registerform(models.Model):
     name=models.CharField(max_length=100)

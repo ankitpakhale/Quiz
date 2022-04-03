@@ -62,9 +62,21 @@
                             <td class="option4"><label for="">Option 4</label></td>
                             <td><input name="option4" id="option4" type="text" style="width: 100%;" placeholder="Enter option 4"></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td class="categoryName"><label for="">Category</label></td>
                             <td><input name="categoryName" id="categoryName" type="text" style="width: 100%;" placeholder="Enter Category Name"></td>
+                        </tr> -->
+                        <tr>
+                            <td class="categoryName"><label for="">Category</label></td>
+                            <td>
+                                <!-- <input name="categoryName" id="categoryName" type="text" style="width: 100%;" placeholder="Enter Category Name"> -->
+                                <select id="categoryName" name="categoryName">
+                                    {% for i in cat %}
+                                    <option value="{{i.nameOfCategory}}">{{i.nameOfCategory}}</option>
+                                    {% endfor %}
+                                </select>
+                                <a href="{% url 'addCategory' %}" style="text-decoration: none; font-weight: bold; font-size: 20px;">+</a>    
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="">Answer</label></td>

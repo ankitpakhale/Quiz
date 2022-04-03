@@ -2,51 +2,54 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="A new design system for developing with less effort.">
-    <meta name="author" content="BootstrapBay">
 
-    <!-- favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'images/favicon/site.webmanifest' %}">
-    <link rel="mask-icon" href="{% static 'images/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#000000">
-    <meta name="theme-color" content="#0d0000">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="A new design system for developing with less effort.">
+  <meta name="author" content="BootstrapBay">
+
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static 'images/favicon/site.webmanifest' %}">
+  <link rel="mask-icon" href="{% static 'images/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#000000">
+  <meta name="theme-color" content="#0d0000">
 
 
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="{% static 'css/random-quiz/bootstrap.min.css' %}">
-    <!-- lazy styling -->
-    <link rel="stylesheet" href="{% static 'css/random-quiz/lazy.css' %}">
-    <link rel="stylesheet" href="{% static 'css/random-quiz/demo.css' %}">
-    
-    <!-- font awesome icons -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
-		
-    <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="{% static 'css/index/bootstrap.min.css' %}" />
-    
-    <!--====== Line Icons css ======-->
-    <link rel="stylesheet" href="{% static 'css/index/lineicons.css' %}" />
-    
-    <!--====== Style css ======-->
-    <link rel="stylesheet" href="{% static 'css/index/starter.css' %}" />
-    
-    <link rel="stylesheet" href="{% static 'css/index/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/index/navbar-02.css' %}" />
- 
-    <title>Quizica</title>
-  </head>
-  <body class="index">
-    <!--====== NAVBAR TWO PART START ======-->
-   <!--====== NAVBAR TWO PART START ======-->
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="{% static 'css/random-quiz/bootstrap.min.css' %}">
+  <!-- lazy styling -->
+  <link rel="stylesheet" href="{% static 'css/random-quiz/lazy.css' %}">
+  <link rel="stylesheet" href="{% static 'css/random-quiz/demo.css' %}">
 
-   <section class="navbar-area navbar-two" style="margin: 0 0 50px 0;">
+  <!-- font awesome icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css"
+    integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+
+  <!--====== Bootstrap css ======-->
+  <link rel="stylesheet" href="{% static 'css/index/bootstrap.min.css' %}" />
+
+  <!--====== Line Icons css ======-->
+  <link rel="stylesheet" href="{% static 'css/index/lineicons.css' %}" />
+
+  <!--====== Style css ======-->
+  <link rel="stylesheet" href="{% static 'css/index/starter.css' %}" />
+
+  <link rel="stylesheet" href="{% static 'css/index/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/index/navbar-02.css' %}" />
+
+  <title>Quizica</title>
+</head>
+
+<body class="index">
+  <!--====== NAVBAR TWO PART START ======-->
+  <!--====== NAVBAR TWO PART START ======-->
+
+  <section class="navbar-area navbar-two" style="margin: 0 0 50px 0;">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -55,15 +58,8 @@
               <img src="{% static 'images/Logoquizica 1.svg' %}" alt="Logo" />
             </a>
 
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarTwo"
-              aria-controls="navbarTwo"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTwo"
+              aria-controls="navbarTwo" aria-expanded="false" aria-label="Toggle navigation">
               <span class="toggler-icon"></span>
               <span class="toggler-icon"></span>
               <span class="toggler-icon"></span>
@@ -72,22 +68,22 @@
             <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
               <ul class="navbar-nav m-auto">
                 <li class="nav-item">
-                  
-                  <li class="nav-item">
-                    <a href="{% url 'home' %}">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{% url 'features' %}">Features</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{% url 'about' %}">About Us</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{% url 'randomquiz' %}">Random Quiz</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{% url 'support' %}">Support</a>
-                  </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'features' %}">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'randomquiz' %}">Random Quiz</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'support' %}">Support</a>
+                </li>
               </ul>
             </div>
 
@@ -108,32 +104,36 @@
     </div>
     <!-- container -->
   </section>
- <!--====== NAVBAR TWO PART ENDS ======-->
-    <!-- your content here -->
-  
-    <div class="container">
-      <div class="row container-fluid">
-        <div class="col-md-3 mb-5">
+  <!--====== NAVBAR TWO PART ENDS ======-->
+  <!-- your content here -->
+  <!-- <form method="POST">
+    {% csrf_token %} -->
+
+  <div class="container">
+    <div class="row container-fluid">
+
+      <div class="col-md-3 mb-5">
+        <form method="POST">
+          {% csrf_token %}
           <div class="component">
             <div class="card">
-              <a href="../play quiz/index.html">
-                <div class="card-header">
-                  <img class="card-img" src="{% static 'images/rocket.png' %}" style="
+              <div class="card-header">
+                <img class="card-img" src="{% static 'images/rocket.png' %}" style="
                   height: 206px;" alt="dog">
-                </div>
-                <div class="card-body">
-                  <!-- <span class="badge badge-success mb-2">Science</span> -->
-                  <h4 class="card-title text-center">Science</h4>
-                  <!-- <p class="card-text">Owning a dog is great fun and immensely rewarding. But, dogs have complex needs and each dog is unique. </p> -->
-                </div>
-                <!-- <div class="card-footer">
-                  <a href="#a" class="btn btn-primary">Read More</a>
-                </div> -->
-              </a>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title text-center">Science</h4>
+                <input type="hidden" name="categoryName" value="Science">
+                <input type="submit" value="Play Quiz" class="btn btn-primary">
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-3 mb-5">
+        </form>
+      </div>
+
+      <div class="col-md-3 mb-5">
+        <form method="POST">
+          {% csrf_token %}
           <div class="component">
             <div class="card">
               <a href="{% url 'play' %}">
@@ -141,19 +141,19 @@
                   <img class="card-img" src="{% static 'images/geography.png' %}" alt="dog">
                 </div>
                 <div class="card-body">
-                  <!-- <span class="badge badge-warning mb-2">Geography</span> -->
                   <h4 class="card-title text-center">Geography</h4>
-                  <!-- <p class="card-text">Considering Spain's abundant coastline, beaches that do allow you to take your pooch to feel sand... </p> -->
+                  <input type="hidden" name="categoryName" value="Geography">
+                  <input type="submit" value="Play Quiz" class="btn btn-primary">
                 </div>
-                <!-- <div class="card-footer">
-                  <a href="#a" class="btn btn-outline-primary">Read More</a>
-                </div> -->
               </a>
             </div>
           </div>
-        </div>
+        </form>
+      </div>
 
-        <div class="col-md-3 mb-5">
+      <div class="col-md-3 mb-5">
+        <form method="POST">
+          {% csrf_token %}
           <div class="component">
             <div class="card">
               <a href="{% url 'play' %}">
@@ -161,18 +161,20 @@
                   <img class="card-img" src="{% static 'images/sports.png' %}" alt="dog">
                 </div>
                 <div class="card-body">
-                  <!-- <span class="badge badge-secondary mb-2">Sports</span> -->
                   <h4 class="card-title text-center ">Sports</h4>
-                  <!-- <p class="card-text">This new addition to your family will require lots of love, attention and plenty of supplies. </p> -->
+                  <input type="hidden" name="categoryName" value="Sports">
+                  <input type="submit" value="Play Quiz" class="btn btn-primary">
                 </div>
               </a>
-              <!-- <div class="card-footer">
-                <a href="#a" class="btn btn-outline-primary">Read More</a>
-              </div> -->
             </div>
           </div>
-        </div>
-        <div class="col-md-3 mb-5">
+        </form>
+      </div>
+
+
+      <div class="col-md-3 mb-5">
+        <form method="POST">
+          {% csrf_token %}
           <div class="component">
             <div class="card">
               <a href="{% url 'play' %}">
@@ -180,18 +182,20 @@
                   <img class="card-img" src="{% static 'images/biology.png' %}" alt="dog">
                 </div>
                 <div class="card-body">
-                  <!-- <span class="badge badge-warning mb-2">Geography</span> -->
                   <h4 class="card-title text-center">Biology</h4>
-                  <!-- <p class="card-text">Considering Spain's abundant coastline, beaches that do allow you to take your pooch to feel sand... </p> -->
+                  <input type="hidden" name="categoryName" value="Biology">
+                  <input type="submit" value="Play Quiz" class="btn btn-primary">
                 </div>
-                <!-- <div class="card-footer">
-                  <a href="#a" class="btn btn-outline-primary">Read More</a>
-                </div> -->
               </a>
             </div>
           </div>
-        </div>
-        <div class="col-md-3 mb-5">
+        </form>
+      </div>
+
+
+      <div class="col-md-3 mb-5">
+        <form method="POST">
+          {% csrf_token %}
           <div class="component">
             <div class="card">
               <a href="{% url 'play' %}">
@@ -199,18 +203,20 @@
                   <img class="card-img" src="{% static 'images/chemistry.png' %}" alt="dog">
                 </div>
                 <div class="card-body">
-                  <!-- <span class="badge badge-warning mb-2">Geography</span> -->
                   <h4 class="card-title text-center">Chemistry</h4>
-                  <!-- <p class="card-text">Considering Spain's abundant coastline, beaches that do allow you to take your pooch to feel sand... </p> -->
+                  <input type="hidden" name="categoryName" value="Chemistry">
+                  <input type="submit" value="Play Quiz" class="btn btn-primary">
                 </div>
-                <!-- <div class="card-footer">
-                  <a href="#a" class="btn btn-outline-primary">Read More</a>
-                </div> -->
               </a>
             </div>
           </div>
-        </div>
-        <div class="col-md-3 mb-5">
+        </form>
+      </div>
+
+
+      <div class="col-md-3 mb-5">
+        <form method="POST">
+          {% csrf_token %}
           <div class="component">
             <div class="card">
               <a href="{% url 'play' %}">
@@ -218,18 +224,20 @@
                   <img class="card-img" src="{% static 'images/maths.png' %}" alt="dog">
                 </div>
                 <div class="card-body">
-                  <!-- <span class="badge badge-warning mb-2">Geography</span> -->
                   <h4 class="card-title text-center">Mathematics</h4>
-                  <!-- <p class="card-text">Considering Spain's abundant coastline, beaches that do allow you to take your pooch to feel sand... </p> -->
+                  <input type="hidden" name="categoryName" value="Mathematics">
+                  <input type="submit" value="Play Quiz" class="btn btn-primary">
                 </div>
-                <!-- <div class="card-footer">
-                  <a href="#a" class="btn btn-outline-primary">Read More</a>
-                </div> -->
               </a>
             </div>
           </div>
-        </div>
-        <div class="col-md-3 mb-5">
+        </form>
+      </div>
+
+
+      <div class="col-md-3 mb-5">
+        <form method="POST">
+          {% csrf_token %}
           <div class="component">
             <div class="card">
               <a href="{% url 'play' %}">
@@ -237,18 +245,20 @@
                   <img class="card-img" src="{% static 'images/law.png' %}" alt="dog">
                 </div>
                 <div class="card-body">
-                  <!-- <span class="badge badge-warning mb-2">Geography</span> -->
                   <h4 class="card-title text-center">Law</h4>
-                  <!-- <p class="card-text">Considering Spain's abundant coastline, beaches that do allow you to take your pooch to feel sand... </p> -->
+                  <input type="hidden" name="categoryName" value="Law">
+                  <input type="submit" value="Play Quiz" class="btn btn-primary">
                 </div>
-                <!-- <div class="card-footer">
-                  <a href="#a" class="btn btn-outline-primary">Read More</a>
-                </div> -->
               </a>
             </div>
           </div>
-        </div>
-        <div class="col-md-3 mb-5">
+        </form>
+      </div>
+
+
+      <div class="col-md-3 mb-5">
+        <form method="POST">
+          {% csrf_token %}
           <div class="component">
             <div class="card">
               <a href="{% url 'play' %}">
@@ -256,31 +266,33 @@
                   <img class="card-img" src="{% static 'images/entertaiment.png' %}" alt="dog">
                 </div>
                 <div class="card-body">
-                  <!-- <span class="badge badge-warning mb-2">Geography</span> -->
                   <h4 class="card-title text-center">Entertainment</h4>
-                  <!-- <p class="card-text">Considering Spain's abundant coastline, beaches that do allow you to take your pooch to feel sand... </p> -->
+                  <input type="hidden" name="categoryName" value="Entertainment">
+                  <input type="submit" value="Play Quiz" class="btn btn-primary">
                 </div>
-                <!-- <div class="card-footer">
-                  <a href="#a" class="btn btn-outline-primary">Read More</a>
-                </div> -->
               </a>
             </div>
           </div>
-        </div>
-      <!-- </div> -->
+        </form>
       </div>
+
+
+      <!-- </div> -->
+    </div>
+    <!-- </form> -->
   </div>
-    
-    
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{% static 'css/random-quiz/jquery.min.js' %}"></script>
-    <script src="{% static 'css/random-quiz/popper.min.js' %}"></script>
-    <script src="{% static 'css/random-quiz/bootstrap.min.js' %}" ></script>
 
-    <!-- optional plugins -->
-    <script src="{% static 'css/random-quiz/nouislider.min.js' %}"></script>
 
-    <!--   lazy javascript -->
-    <script src="{% static 'css/random-quiz/lazy.js' %}"></script>
-  </body>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="{% static 'css/random-quiz/jquery.min.js' %}"></script>
+  <script src="{% static 'css/random-quiz/popper.min.js' %}"></script>
+  <script src="{% static 'css/random-quiz/bootstrap.min.js' %}"></script>
+
+  <!-- optional plugins -->
+  <script src="{% static 'css/random-quiz/nouislider.min.js' %}"></script>
+
+  <!--   lazy javascript -->
+  <script src="{% static 'css/random-quiz/lazy.js' %}"></script>
+</body>
+
 </html>
