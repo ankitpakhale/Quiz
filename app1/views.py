@@ -1,3 +1,4 @@
+from re import U
 from unicodedata import name
 from django.shortcuts import render,redirect
 from .models import *
@@ -61,10 +62,6 @@ def signup(request):
     else:
         return render(request,'signup.html')
 
-def join(request):
-    
-    return render(request,'join.html')
-
 def features(request):
     return render(request,'features.html')
 
@@ -80,9 +77,7 @@ def questions(request):
 def addquestions(request):
     if request.session.has_key('username'):
         print(request.session['username'])
-        print("Inside addquestions function")
         cat = category.objects.all()
-        
         if request.method=='POST':
             print("Inside POST method")
             questions=request.POST['question']
@@ -141,38 +136,55 @@ def dashboardview(request):
     else :
         return redirect('signin')
 
+
+def join(request):
+    if request.session.has_key('username'):
+        print("Inside Join function")
+        if request.method=='POST':
+            userID = ''
+            try:
+                userID = signupform.objects.get(name=request.POST['gameId'])
+                # print(userID)
+                request.session['userID'] = userID
+                print(request.session['userID'])
+                return redirect('play')
+            except:
+                return render(request,'join.html', {'msg': 'User Does not exist'})
+            
+            # userQuestion = question.objects.filter(owner = userID)
+            # request.session['userQuestion'] = userQuestion
+            # print(userQuestion)            
+            # return redirect('play')
+        return render(request,'join.html')
+    else :
+        return redirect('signin')
+
+
 def randomquiz(request):
     if request.method=='POST':
+        print("randomquiz post method")
         cheese_blog=request.POST['categoryName']
-        request.session['cheese_blog'] = cheese_blog
-        ncat = category.objects.get(nameOfCategory = cheese_blog)
-        print(ncat)
-        categoryName = question.objects.filter(categoryName = ncat)
-        print(categoryName)
-        print('Redirecting to play function')
-        return redirect('play')
+        print(cheese_blog)
+        # request.session['cheese_blog'] = cheese_blog
+        return redirect('play',cheese_blog)
     return render(request,'random quiz.html')
 
-def play(request):
+def play(request, cat_name):
     print('inside Play function function')
     if request.session.has_key('username'):
         print('play Play')
         right = 0
         wrong = 0
-        # data = sorted(question.objects.all(),key=lambda x: random.random())
-        # ncat = category.objects.get(nameOfCategory = 'Geography')
-        cheese_blog = request.session['cheese_blog']
-        print(request.session['cheese_blog'])
-        ncat = category.objects.get(nameOfCategory = cheese_blog)
-        # to delete 'cheese_blog' session
-        del request.session['cheese_blog']
+        ncat = category.objects.get(nameOfCategory =cat_name)
         data = question.objects.filter(categoryName = ncat)
         total_data = question.objects.filter(categoryName = ncat).count()
         if request.POST:
             print('POST condition')
             for d in data :
-                val = request.POST["q"+str(d.id)]
-                print(val)
+                pl = str(d.id)
+                print(pl,"this is PL")
+                val = request.POST['q'+pl]
+                print(val, "this is value")
                 if d.ans == val :
                     print(f'\nRight Answer = {d.ans}\n')
                     right +=1

@@ -1,20 +1,179 @@
-<html>
-    <body>
-        <div style="margin-left: 200px;font-family: Arial, Helvetica, sans-serif;">
-        <h1>Quiz will Beginning ...!</h1>
-        <form method="POST">
-            {% for q in data %}
-                {% csrf_token %}
+{% load static %}
 
-                <div><h1>Q. {{ q.question }}</h1></div>
-                <div>
-                    <p><input type="radio" name="q{{ q.id }}" value="{{ q.w_ans1 }}" id="q1a">a. {{ q.option1 }}<br></p>
-                    <p><input type="radio" name="q{{ q.id }}" value="{{ q.w_ans2 }}" id="q1b">b. {{ q.option2 }}<br></p>
-                    <p><input type="radio" name="q{{ q.id }}" value="{{ q.w_ans3 }}" id="q1c">c. {{ q.option3 }}<br></p>
-                    <p><input type="radio" name="q{{ q.id }}" value="{{ q.w_ans4 }}" id="q1d">d. {{ q.option4 }}<br></p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'images/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#0d0000">
+
+
+    <!-- FontAwesome-cdn include -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Google fonts include -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&family=Poppins:wght@700;800&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap-css include -->
+    <link rel="stylesheet" href="{% static 'css/question/bootstrap.min.css' %}">
+    <!-- Animate-css include -->
+    <link rel="stylesheet" href="{% static 'css/question/animate.min.css' %}">
+    <!-- Main-StyleSheet include -->
+    <link rel="stylesheet" href="{% static 'css/question/style.css' %}">
+
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="{% static 'css/index/bootstrap.min.css' %}" />
+
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="{% static 'css/index/lineicons.css' %}" />
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="{% static 'css/index/starter.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/index/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index/navbar-02.css' %}" />
+
+
+    <title>Quizica</title>
+    <style>
+        * {
+            overflow-x: hidden;
+        }
+
+        .quizbox {
+            background-color: #F5F5F5;
+            border-radius: 0.625rem;
+            margin: 20px 30px;
+            padding: 10px 30px;
+
+        }
+
+        .texttagline {
+            font-size: 25px;
+            font-weight: 600;
+            color: #2DA3FF;
+            padding: 20px 10px;
+        }
+        .qOptions{
+            padding: 10px;
+
+        }
+        .rbtn{
+            margin-right: 10px
+        }
+    </style>
+</head>
+
+<body>
+    <!--====== NAVBAR TWO PART START ======-->
+
+    <section class="navbar-area navbar-two">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="javascript:void(0)">
+                            <img src="{% static 'images/Logoquizica 1.svg' %}" alt="Logo" />
+                        </a>
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarTwo" aria-controls="navbarTwo" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
+                            <ul class="navbar-nav m-auto">
+                                <li class="nav-item">
+
+                                <li class="nav-item">
+                                    <a href="{% url 'home' %}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'features' %}">Features</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'about' %}">About Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'randomquiz' %}">Random Quiz</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{% url 'support' %}">Support</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="navbar-btn d-none d-sm-inline-block">
+                            <ul>
+                                <li>
+                                    <a class="btn primary-btn square" href="{% url 'logout' %}">
+                                        Sign Out
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- navbar -->
                 </div>
-                {% endfor %}
-                <input type="submit" value="Submit" style="padding: 5px 30px;background-color: black; color: white;cursor: pointer;">
-        </form></div>
-    </body>
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </section>
+    <!--====== NAVBAR TWO PART ENDS ======-->
+
+    <div class="row justify-content-center" id="banner">
+        <div class="col-md-5 col-11" id="bannertext">
+            <h1 id="texttagline">Quiz will<span id="custom"> Begin</span>!!!</h1>
+        </div>
+
+        <form method="POST">
+
+            {% for q in data %}
+            {% csrf_token %}
+            <div class="quizbox">
+                <div>
+                    <h1 class="texttagline">Q. {{ q.question }}</h1>
+                </div>
+                <div>
+                    <p class="qOptions"><input class="rbtn" type="radio" name="q{{ q.id }}" value="{{ q.w_ans1 }}" id="q1a">a. {{ q.option1 }}<br></p>
+                    <p class="qOptions"><input class="rbtn" type="radio" name="q{{ q.id }}" value="{{ q.w_ans2 }}" id="q1b">b. {{ q.option2 }}<br></p>
+                    <p class="qOptions"><input class="rbtn" type="radio" name="q{{ q.id }}" value="{{ q.w_ans3 }}" id="q1c">c. {{ q.option3 }}<br></p>
+                    <p class="qOptions"><input class="rbtn" type="radio" name="q{{ q.id }}" value="{{ q.w_ans4 }}" id="q1d">d. {{ q.option4 }}<br></p>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- <input type="submit" value="Submit" style="padding: 5px 30px;background-color: black; color: white;cursor: pointer;"> -->
+            <input type="submit" value="Submit" class="btn primary-btn square btn1" style=" margin: 20px 30px;">
+        </form>
+
+    </div>
+
+    <!-- jQuery-js include -->
+    <script src="{% static 'js/question/jquery-3.6.0.min.js' %}"></script>
+    <!-- Bootstrap-js include -->
+    <script src="{% static 'js/question/bootstrap.min.js' %}"></script>
+    <!-- jQuery-counter-up-js include -->
+    <script src="{% static 'js/question/countdown.js' %}"></script>
+    <!-- jQuery-validate-js include -->
+    <script src="{% static 'js/question/jquery.validate.min.js' %}"></script>
+    <!-- Custom-js include -->
+    <script src="{% static 'js/question/script.js' %}"></script>
+</body>
+
 </html>
+<!-- --------------------------------------------------------------------- -->

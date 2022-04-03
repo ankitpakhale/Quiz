@@ -58,12 +58,18 @@
             <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8  offset-lg-2 quiz-code text-center">
-                    <div class="sc-dobjRs jkWdUe"><div data-functional-selector="game-logo" class="sc-fbNXWD laTUtf" title="Kahoot!"><h4 class="text-white">Enter code to join quiz:</h4></div></div>
+                    <div class="sc-dobjRs jkWdUe"><div data-functional-selector="game-logo" class="sc-fbNXWD laTUtf" title="Kahoot!"><h4 class="text-white">Enter User's Name to join their quiz:</h4></div></div>
                     
                     <div class="form text-center">
-                        <form action="#" class="sc-cjGabg dsfWTG"><input name="gameId" type="tel" placeholder="Quiz code" id="game-input" data-functional-selector="game-pin-input" class="sc-GqfZa kseUGC" autocomplete="off" dir="ltr" value="" min="0" max="9" maxlength="6"aria-expanded="false"><button type="submit" class="sc-jJEJSO cSfrJD sc-lWEAX dVwHwb" data-functional-selector="join-game-pin">Enter</button></form>
-                        
-                      </div>
+                        <form method="POST" class="sc-cjGabg dsfWTG">
+                            {% csrf_token %}
+                            <input name="gameId" type="tel" placeholder="Quiz code" id="game-input" data-functional-selector="game-pin-input" class="sc-GqfZa kseUGC" autocomplete="off" dir="ltr" value="" min="0" max="9" maxlength="6"aria-expanded="false">
+                            <button type="submit" class="sc-jJEJSO cSfrJD sc-lWEAX dVwHwb" data-functional-selector="join-game-pin">Enter</button>
+                        </form>
+                        <a href="{% url 'home' %}">
+                            <button type="text" class="sc-jJEJSO cSfrJD sc-lWEAX dVwHwb" data-functional-selector="join-game-pin">Home</button>
+                        </a>
+                    </div>
                 </div>
             </div>
             </div>
@@ -81,5 +87,11 @@
 
     <!--   lazy javascript -->
     <script src="{% static 'css/join/lazy.js' %}"></script>
+
+    {% if msg %}
+    <script>alert('{{ msg }}')</script>
+    {% endif %}
+
+
 </body>
 </html>

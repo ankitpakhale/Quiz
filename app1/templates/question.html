@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,11 +16,13 @@
    <meta name="msapplication-TileColor" content="#000000">
    <meta name="theme-color" content="#0d0000">
 
-   
+
    <!-- FontAwesome-cdn include -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
    <!-- Google fonts include -->
-   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+   <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&family=Poppins:wght@700;800&display=swap"
+      rel="stylesheet">
    <!-- Bootstrap-css include -->
    <link rel="stylesheet" href="{% static 'css/question/bootstrap.min.css' %}">
    <!-- Animate-css include -->
@@ -27,6 +30,7 @@
    <!-- Main-StyleSheet include -->
    <link rel="stylesheet" href="{% static 'css/question/style.css' %}">
 </head>
+
 <body>
    <div class="wrapper overflow-hidden">
       <!-- Top content -->
@@ -34,20 +38,22 @@
          <div class="row">
             <div class="col-sm-12 na">
                <div class="row">
-               <div class="col-sm-6">
-                  <div class="logo_area ps-5">
-                     <a href="index.html">
-                        <img src="{% static 'images/Logoquizica 1.svg' %}" style="margin: 15px;
+                  <div class="col-sm-6">
+                     <div class="logo_area ps-5">
+                        <a href="index.html">
+                           <img src="{% static 'images/Logoquizica 1.svg' %}" style="margin: 15px;
                         margin-left: 14px;" alt="image-not-found">
-                     </a>
+                        </a>
+                     </div>
                   </div>
-               </div>
-               <div class="col-sm-6 d-none d-sm-block">
-                  <div class="count_box d-flex float-end pe-2">
-                     <div class="count_clock countdown_timer d-flex align-items-center mt-2" data-countdown="2022/10/24"><img src="{% static 'images/watch-blue.png' %}" alt="image-not-found"><span class="pe-5 counter">31:15</span></div>
-                     <!-- <div id="countdown"></div> -->
-                     <!-- Step Progress bar -->
-                     <!-- <div class="count_progress clip-1">
+                  <div class="col-sm-6 d-none d-sm-block">
+                     <div class="count_box d-flex float-end pe-2">
+                        <div class="count_clock countdown_timer d-flex align-items-center mt-2"
+                           data-countdown="2022/10/24"><img src="{% static 'images/watch-blue.png' %}"
+                              alt="image-not-found"><span class="pe-5 counter">31:15</span></div>
+                        <!-- <div id="countdown"></div> -->
+                        <!-- Step Progress bar -->
+                        <!-- <div class="count_progress clip-1">
                         <span class="progress-left">
                            <span class="progress_bar"></span>
                         </span>
@@ -58,18 +64,20 @@
                            <div id="value">0</div>
                         </div>
                      </div> -->
+                     </div>
                   </div>
                </div>
-            </div>
             </div>
          </div>
       </div>
       <div class="container">
-         <form class="multisteps_form bg-white position-relative overflow-hidden" id="wizard" method="POST" action="../play quiz/quiz-completed.html">
+         <form class="multisteps_form bg-white position-relative overflow-hidden" id="wizard" method="POST"
+            action="../play quiz/quiz-completed.html">
             <!------------------------- Step-1 ----------------------------->
             <div class="multisteps_form_panel step active" style="display: block;">
                <div class="question_title text-center text-uppercase">
-                  <h1 class="animate__animated animate__fadeInRight animate_25ms">What kind of services you are quiz?</h1>
+                  <h1 class="animate__animated animate__fadeInRight animate_25ms">What kind of services you are quiz?
+                  </h1>
                </div>
                <div class="question_number text-center text-uppercase text-white">
                   <span class="rounded-pill">Question 1 to 5</span>
@@ -112,7 +120,8 @@
             <!------------------------- Step-2 ----------------------------->
             <div class="multisteps_form_panel step">
                <div class="question_title text-center text-uppercase">
-                  <h1 class="animate__animated animate__fadeInRight animate_25ms">The iron ore mined at Bailadila is mostly</h1>
+                  <h1 class="animate__animated animate__fadeInRight animate_25ms">The iron ore mined at Bailadila is
+                     mostly</h1>
                </div>
                <div class="question_number text-center text-uppercase text-white">
                   <span class="rounded-pill">Question 2 to 5</span>
@@ -155,7 +164,8 @@
             <!------------------------- Step-3 ----------------------------->
             <div class="multisteps_form_panel step">
                <div class="question_title text-center text-uppercase">
-                  <h1 class="animate__animated animate__fadeInRight animate_25ms">The leading state in producing paper is</h1>
+                  <h1 class="animate__animated animate__fadeInRight animate_25ms">The leading state in producing paper
+                     is</h1>
                </div>
                <div class="question_number text-center text-uppercase text-white">
                   <span class="rounded-pill">Question 3 to 5</span>
@@ -198,7 +208,8 @@
             <!------------------------- Step-4 ----------------------------->
             <div class="multisteps_form_panel step">
                <div class="question_title text-center text-uppercase">
-                  <h1 class="animate__animated animate__fadeInRight animate_25ms">The largest dune files are found in</h1>
+                  <h1 class="animate__animated animate__fadeInRight animate_25ms">The largest dune files are found in
+                  </h1>
                </div>
                <div class="question_number text-center text-uppercase text-white">
                   <span class="rounded-pill">Question 4 to 5</span>
@@ -241,7 +252,8 @@
             <!------------------------- Step-5 ----------------------------->
             <div class="multisteps_form_panel step">
                <div class="question_title text-center text-uppercase">
-                  <h1 class="animate__animated animate__fadeInRight animate_25ms">The least explosive type of volcano is called</h1>
+                  <h1 class="animate__animated animate__fadeInRight animate_25ms">The least explosive type of volcano is
+                     called</h1>
                </div>
                <div class="question_number text-center text-uppercase text-white">
                   <span class="rounded-pill">Question 5 to 5</span>
@@ -283,8 +295,11 @@
             </div>
             <!---------- Form Button ---------->
             <div class="form_btn">
-               <button type="button" class="prev_btn position-absolute text-uppercase border-0" id="prevBtn" onclick="nextPrev(-1)" style="display: none;"> <span><i class="fas fa-arrow-left"></i></span> Back</button>
-               <button type="button" class="next_btn rounded-pill position-absolute text-uppercase text-white" id="nextBtn" onclick="nextPrev(1)">Next</button>
+               <button type="button" class="prev_btn position-absolute text-uppercase border-0" id="prevBtn"
+                  onclick="nextPrev(-1)" style="display: none;"> <span><i class="fas fa-arrow-left"></i></span>
+                  Back</button>
+               <button type="button" class="next_btn rounded-pill position-absolute text-uppercase text-white"
+                  id="nextBtn" onclick="nextPrev(1)">Next</button>
             </div>
          </form>
       </div>
@@ -301,4 +316,5 @@
    <script src="{% static 'js/question/script.js' %}"></script>
 
 </body>
+
 </html>
