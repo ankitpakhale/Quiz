@@ -3,5 +3,5 @@ from .models import *
 
 class loginform(forms.ModelForm):
     class Meta:
-        model = registerform
+        model = signupform
         fields = ['email','password']

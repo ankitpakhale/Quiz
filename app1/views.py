@@ -1,3 +1,4 @@
+from unicodedata import name
 from django.shortcuts import render,redirect
 from .models import *
 from django.contrib import messages
@@ -61,6 +62,7 @@ def signup(request):
         return render(request,'signup.html')
 
 def join(request):
+    
     return render(request,'join.html')
 
 def features(request):
@@ -76,38 +78,44 @@ def questions(request):
     return render(request,'question.html')
 
 def addquestions(request):
-    print("Inside addquestions function")
-    cat = category.objects.all()
-    
-    if request.method=='POST':
-        print("Inside POST method")
-        questions=request.POST['question']
-        option1=request.POST['option1']
-        option2=request.POST['option2']
-        option3=request.POST['option3']
-        option4=request.POST['option4']
-        ans=request.POST['ans']
-        categoryName=request.POST['categoryName']
-        # try:
-        categoryName = category.objects.get(nameOfCategory = categoryName)
-        print("Try block of addquestions function")
-        v = question(question = questions,
-                     option1 = option1,
-                     option2 = option2,
-                     option3 = option3,
-                     option4 = option4,
-                     ans = ans,
-                     categoryName = categoryName
-                     )
-        v.save()
-        print("Data saved properly")
-        return render(request,'add questions.html', {'msg': 'Your questions are successfully saved'})
-        # except:
-        #     return render(request,'add questions.html', {'msg': 'Something went wrong'})
-    else:
-        print("Else condition")
-        return render(request,'add questions.html', {'cat': cat})
-
+    if request.session.has_key('username'):
+        print(request.session['username'])
+        print("Inside addquestions function")
+        cat = category.objects.all()
+        
+        if request.method=='POST':
+            print("Inside POST method")
+            questions=request.POST['question']
+            option1=request.POST['option1']
+            option2=request.POST['option2']
+            option3=request.POST['option3']
+            option4=request.POST['option4']
+            ans=request.POST['ans']
+            categoryName=request.POST['categoryName']
+            # try:
+            categoryName = category.objects.get(nameOfCategory = categoryName)
+            owner=signupform.objects.get(name=request.session['username'])
+            print("Try block of addquestions function")
+            v = question(question = questions,
+                        option1 = option1,
+                        option2 = option2,
+                        option3 = option3,
+                        option4 = option4,
+                        ans = ans,
+                        categoryName = categoryName,
+                        owner = owner
+                        )
+            v.save()
+            print("Data saved properly")
+            return render(request,'add questions.html', {'msg': 'Your questions are successfully saved'})
+            # except:
+            #     return render(request,'add questions.html', {'msg': 'Something went wrong'})
+        else:
+            print("Else condition")
+            return render(request,'add questions.html', {'cat': cat})
+    else :
+        return redirect('signin')
+        
 def enter(request):
     if request.POST :
         return redirect('play')
@@ -127,20 +135,16 @@ def addCategory(request):
 
 def dashboardview(request):
     if request.session.has_key('username'):
-        data=registerform.objects.get(name=request.session['username'])
+        data=signupform.objects.get(name=request.session['username'])
         # there will also be same issue as there in play function
         return render(request,'dashboard.html',{'data' : data})
     else :
         return redirect('signin')
 
-
-
 def randomquiz(request):
     if request.method=='POST':
-        print("Inside POST method")
         cheese_blog=request.POST['categoryName']
-        print(cheese_blog)
-        request.session['username'] = cheese_blog
+        request.session['cheese_blog'] = cheese_blog
         ncat = category.objects.get(nameOfCategory = cheese_blog)
         print(ncat)
         categoryName = question.objects.filter(categoryName = ncat)
@@ -157,8 +161,11 @@ def play(request):
         wrong = 0
         # data = sorted(question.objects.all(),key=lambda x: random.random())
         # ncat = category.objects.get(nameOfCategory = 'Geography')
-        cheese_blog = request.session['username']
+        cheese_blog = request.session['cheese_blog']
+        print(request.session['cheese_blog'])
         ncat = category.objects.get(nameOfCategory = cheese_blog)
+        # to delete 'cheese_blog' session
+        del request.session['cheese_blog']
         data = question.objects.filter(categoryName = ncat)
         total_data = question.objects.filter(categoryName = ncat).count()
         if request.POST:
@@ -173,7 +180,7 @@ def play(request):
                     print(f'Wrong Answer..\nRight Answer = {d.ans}\n')
                     wrong +=1
             print(f'Right = {right}, Wrong = {wrong}')
-            form = registerform.objects.get(name = request.session['username'])
+            form = signupform.objects.get(name = request.session['username'])
             form.total_data = total_data
             form.right = right
             form.wrong = wrong
