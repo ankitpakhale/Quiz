@@ -134,9 +134,7 @@ import plotly.express as px
 def dashboardview(request):
     if request.session.has_key('username'):
         data=signupform.objects.get(name=request.session['username'])
-        print(data.right)
-        print(data.wrong)
-        print(data.score)
+        # adding graph on result screen
         labels = ['Right', 'Wrong', 'Score']
         values = [data.right, data.wrong, data.score]        
         fig = go.Figure(data=[
@@ -149,7 +147,7 @@ def dashboardview(request):
                 )])
         fig.show()
         # there will also be same issue as there in play function
-        return render(request,'dashboard.html',{'data' : data, 'fig' : fig})
+        return render(request,'dashboard.html',{'data' : data})
     else :
         return redirect('signin')
 
