@@ -127,14 +127,31 @@ def addCategory(request):
             return render(request,'addCategory.html')
     return render(request,'addCategory.html')
 
+import plotly.graph_objects as go
+from io import BytesIO
+import plotly.express as px
+
 def dashboardview(request):
     if request.session.has_key('username'):
         data=signupform.objects.get(name=request.session['username'])
+        print(data.right)
+        print(data.wrong)
+        print(data.score)
+        labels = ['Right', 'Wrong', 'Score']
+        values = [data.right, data.wrong, data.score]        
+        fig = go.Figure(data=[
+            go.Pie(
+                labels=labels, 
+                values=values, 
+                hole=.4, 
+                title='Graph Based on Quiz Result',
+                pull=[0.03, 0.03, 0.2,]
+                )])
+        fig.show()
         # there will also be same issue as there in play function
-        return render(request,'dashboard.html',{'data' : data})
+        return render(request,'dashboard.html',{'data' : data, 'fig' : fig})
     else :
         return redirect('signin')
-
 
 def join(request):
     if request.session.has_key('username'):
