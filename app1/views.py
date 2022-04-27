@@ -135,15 +135,15 @@ def dashboardview(request):
     if request.session.has_key('username'):
         data=signupform.objects.get(name=request.session['username'])
         # adding graph on result screen
-        labels = ['Right', 'Wrong', 'Score']
-        values = [data.right, data.wrong, data.score]        
+        labels = ['Wrong', 'Score']
+        values = [data.wrong, data.score]        
         fig = go.Figure(data=[
             go.Pie(
                 labels=labels, 
                 values=values, 
                 hole=.4, 
                 title='Graph Based on Quiz Result',
-                pull=[0.03, 0.03, 0.2,]
+                pull=[0.03, 0.06]
                 )])
         fig.show()
         # there will also be same issue as there in play function
