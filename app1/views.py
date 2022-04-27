@@ -12,6 +12,7 @@ def index(request):
 # def signin(request):
 #     return render(request,'signin.html')
 
+
 def signin(request):
     # print("01 signin method")
     if request.method=='POST':
