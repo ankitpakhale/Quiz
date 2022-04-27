@@ -5,11 +5,13 @@ from .models import *
 from django.contrib import messages
 import random
 # Create your views here.
+
 def index(request):
     return render(request,'index.html')
 
 # def signin(request):
 #     return render(request,'signin.html')
+
 
 def signin(request):
     # print("01 signin method")
